@@ -1,0 +1,25 @@
+class ApplicationController < ActionController::Base
+  # Prevent CSRF attacks by raising an exception.
+  # For APIs, you may want to use :null_session instead.
+  protect_from_forgery with: :exception
+  def form
+  end
+  
+  def new
+    n = City.new
+    n.name = params['name']
+    if n.name == 'Chicago'
+      render 'postive'
+    else
+      render 'negative'
+    end
+  end
+  
+  def positive
+  end
+  
+  def negative
+  end
+  
+  
+end
